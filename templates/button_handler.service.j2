@@ -3,7 +3,7 @@ Description=button_handler
 After=network.target
 
 [Service]
-Type=Forking
+Type=simple
 ExecStart=/var/lib/doorbell/button_handler
 PIDFile=/var/run/button_handler.pid
 

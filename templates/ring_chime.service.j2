@@ -3,7 +3,7 @@ Description=ring_chime
 After=network.target
 
 [Service]
-Type=Forking
+Type=simple
 ExecStart=/var/lib/doorbell/ring_chime
 PIDFile=/var/run/ring_chime.pid
 
