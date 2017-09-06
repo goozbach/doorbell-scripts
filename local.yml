@@ -1,0 +1,19 @@
+---
+- name: Setup doorbell
+  hosts: all
+  connection: local
+
+  vars_files:
+
+    - vars/vault.yml
+  
+  tasks:
+
+    - name: send message to slack
+      slack:
+        token: "{{ slack_token }}"
+        msg: "{{ inventory_hostname }} running ansible"
+        username: queenbot
+        icon_url: 'https://i.imgur.com/o8UhqtS.jpg'
+
+
