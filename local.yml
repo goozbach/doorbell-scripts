@@ -24,7 +24,7 @@
 
     - name: template scripts
       template:
-        src: "{{ item }}.j2"
+        src: "templates/{{ item }}.j2"
         dest: "/var/lib/doorbell/{{ item }}"
         owner: root
         group: root
@@ -35,7 +35,7 @@
 
     - name: template service files
       template:
-        src: "{{ item }}.j2"
+        src: "templates/{{ item }}.j2"
         dest: "/etc/systemd/system/{{ item }}"
         owner: root
         group: root
