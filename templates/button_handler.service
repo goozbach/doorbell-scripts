@@ -1,0 +1,11 @@
+[Unit]
+Description=button_handler
+After=network.target
+
+[Service]
+Type=Forking
+ExecStart=/var/lib/doorbell/button_handler
+PIDFile=/var/run/button_handler.pid
+
+[Install]
+WantedBy=multi-user.target

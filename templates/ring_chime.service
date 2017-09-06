@@ -1,0 +1,11 @@
+[Unit]
+Description=ring_chime
+After=network.target
+
+[Service]
+Type=Forking
+ExecStart=/var/lib/doorbell/ring_chime
+PIDFile=/var/run/ring_chime.pid
+
+[Install]
+WantedBy=multi-user.target
