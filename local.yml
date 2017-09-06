@@ -7,6 +7,11 @@
 
     - vars/vault.yml
   
+  handlers:
+
+    - name: reload systemd
+      shell: /bin/systemctl daemon-reload
+
   tasks:
 
     - name: make directory /var/lib/doorbell
@@ -38,6 +43,17 @@
       with_items:
         - button_handler.service
         - ring_chime.service
+      notify:
+        - reload systemd
+
+    - name: start and enable services
+      service:
+        name: "{{ item }}"
+        state: started
+        enabled: true
+      with_items:
+        - button_handler
+        - ring_chime
 
     - name: send message to slack
       slack:
@@ -45,5 +61,4 @@
         msg: "{{ inventory_hostname }} running ansible"
         username: queenbot
         icon_url: 'https://i.imgur.com/o8UhqtS.jpg'
-
 
