@@ -60,7 +60,7 @@
       cron:
         name: ansible-pull
         weekday: "*"
-        minute: 13
+        minute: 42
         hour: "*"
         user: root
         job: "/usr/local/bin/ansible-pull -d /var/lib/ansible/doorbell --url https://github.com/goozbach/doorbell-scripts.git -i inv/"
